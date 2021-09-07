@@ -4,8 +4,8 @@
 package student;
 public class Final {
     //jdbc
-    public static final String JDBC_URL = "jdbc:sqlserver://127.0.0.1:1433";
-    public static final String JDBC_DRIVER = "com.mircosoft.sqlserver.jdbc.SQLServerDriver";
+    public static final String JDBC_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=students";
+    public static final String JDBC_DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
     public static final String JDBC_USERNAME = "sa";
     public static final String JDBC_PASSWORD = "182715wj";
 
@@ -14,7 +14,7 @@ public class Final {
     public static final String STUDENT_NAME = "姓名";
     public static final String STUDENT_SNO = "学号";
     public static final String STUDENT_SEX = "性别";
-    public static final String STUDENT_FACULTU = "院系";
+    public static final String STUDENT_FACULTY = "院系";
     public static final String STUDENT_HOMETOWN = "籍贯";
     public static final String STUDENT_EMAIL = "电子邮件";
     public static final String STUDENT_TEL = "联系方式";
