@@ -1,0 +1,3 @@
+# StuInfoManagement
+
+java + sql server
