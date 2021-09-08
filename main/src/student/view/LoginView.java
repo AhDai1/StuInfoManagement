@@ -81,6 +81,8 @@ public class LoginView extends JFrame{
     }
     private void check(){
         AdminDAO adminDao = (AdminDAO) BaseDAO.getDAO(DAO.AdMinDAO);
+        //dispose();
+        //new MainView();
         if(adminDao.queryLogin(username.getText(), String.valueOf(password.getPassword()))){
             dispose();//关闭窗体
             new MainView();
