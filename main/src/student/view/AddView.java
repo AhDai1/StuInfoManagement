@@ -64,8 +64,8 @@ public class AddView extends JFrame{
         tel = new JTextField();
         jpCenter.add(tel);
 
-        jpCenter.add(new JLabel("-------------------------------------------------"));
-        jpCenter.add(new JLabel("-------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
 
         //south
         jpSouth = new JPanel();

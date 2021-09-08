@@ -56,8 +56,8 @@ public class UpdateView extends JFrame{
         jpCenter.add(new JLabel(Final.STUDENT_TEL));
         tel = new JTextField();
         jpCenter.add(tel);
-        jpCenter.add(new JLabel("-------------------------------------------------"));
-        jpCenter.add(new JLabel("-------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
 
         // south panel
         jpSouth = new JPanel();
