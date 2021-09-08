@@ -1,12 +1,12 @@
 package student.view;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
+import javax.sql.rowset.JdbcRowSet;
 import javax.swing.*;
 
 import student.Final;
@@ -87,9 +87,28 @@ public class LoginView extends JFrame{
             dispose();//关闭窗体
             new MainView();
         }else{
+            Error();
             username.setText("");
             password.setText("");
         }
+    }
+    private void Error(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("账户或密码错误，请重新输入");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
     }
 }
 
