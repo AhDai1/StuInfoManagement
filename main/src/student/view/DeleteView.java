@@ -39,8 +39,8 @@ public class DeleteView extends JFrame{
         jpCenter.add(new JLabel(Final.STUDENT_SNO));
         sno = new JTextField();
         jpCenter.add(sno);
-        jpCenter.add(new JLabel("-------------------------------------------------"));
-        jpCenter.add(new JLabel("-------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
+        jpCenter.add(new JLabel("------------------------------------------------"));
 
         //south panel
         jpSouth = new JPanel();
@@ -76,7 +76,7 @@ public class DeleteView extends JFrame{
         jpSouth.add(jbEXit);
 
         this.add(jpCenter, BorderLayout.CENTER);
-        this.add(jpCenter, BorderLayout.SOUTH);
+        this.add(jpSouth, BorderLayout.SOUTH);
 
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setBounds(470, 250, 400, 130);
