@@ -1,13 +1,14 @@
 package student.run;
 
 import student.dbUtil.dbUtil;
+import student.view.LoginView;
 
 public class Main {
     public static void initDB(){
         dbUtil db = dbUtil.getdbUtil();
 
         //检查数据库是否初始化
-        if (db.execute("SELECT name FROM  sysobjects WHERE name = N'admin' AND type = 'U'")) {
+        if (db.executeIsTable("SELECT name FROM  sysobjects WHERE name = N'admin' AND type = 'U'")) {
             return;
         }
 
@@ -32,8 +33,8 @@ public class Main {
     }
     public static void main(String[] args) {
         //System.out.println("asd");
-        //initDB();
-
+        initDB();
+        new LoginView();
         //dbUtil.getdbUtil().close();
     }
 
