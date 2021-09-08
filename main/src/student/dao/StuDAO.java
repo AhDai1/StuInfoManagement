@@ -172,7 +172,7 @@ public class StuDAO extends BaseDAO{
         Stu stu = new Stu();
         stu.setId(i + 1);
         stu.setName(rs.getString("name"));
-        stu.setDepartment(rs.getString("faculty"));
+        stu.setFaculty(rs.getString("faculty"));
         stu.setEmail(rs.getString("email"));
         stu.setHomeTown(rs.getString("hometown"));
         stu.setSex(rs.getString("sex"));
