@@ -102,6 +102,26 @@ public class dbUtil {
         }
     }
 
+    public boolean executeIsTable(String sql){
+        if (getConn() == null) {
+            return false;
+        }
+        try {
+            Statement statement = conn.createStatement();
+            ResultSet  rs =  statement.executeQuery(sql);
+            if(!rs.next()){
+                statement.close();
+                rs.close();
+                return false;
+            }
+            statement.close();
+            rs.close();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     private Connection getConn(){//连接数据库，返回Conn
         try{
             if(conn == null || conn.isClosed()){
