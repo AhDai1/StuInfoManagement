@@ -180,30 +180,46 @@ public class MainView extends JFrame{
     public static void initJTable(JTable jTable, String[][] result) {
         ((DefaultTableModel) jTable.getModel()).setDataVector(result, column);
         jTable.setRowHeight(20);
+
         TableColumn firstColumn = jTable.getColumnModel().getColumn(0);
         firstColumn.setPreferredWidth(30);
         firstColumn.setMaxWidth(30);
         firstColumn.setMinWidth(30);
+
         TableColumn secondColumn = jTable.getColumnModel().getColumn(1);
         secondColumn.setPreferredWidth(60);
         secondColumn.setMaxWidth(60);
         secondColumn.setMinWidth(60);
+
         TableColumn thirdColumn = jTable.getColumnModel().getColumn(2);
         thirdColumn.setPreferredWidth(90);
         thirdColumn.setMaxWidth(90);
         thirdColumn.setMinWidth(90);
+
         TableColumn fourthColumn = jTable.getColumnModel().getColumn(3);
         fourthColumn.setPreferredWidth(30);
         fourthColumn.setMaxWidth(30);
         fourthColumn.setMinWidth(30);
+
+        TableColumn fifthColumn = jTable.getColumnModel().getColumn(4);
+        fifthColumn.setPreferredWidth(120);
+        fifthColumn.setMaxWidth(120);
+        fifthColumn.setMinWidth(120);
+
+        TableColumn sixthColumn = jTable.getColumnModel().getColumn(5);
+        sixthColumn.setPreferredWidth(160);
+        sixthColumn.setMaxWidth(160);
+        sixthColumn.setMinWidth(160);
+
         TableColumn seventhColumn = jTable.getColumnModel().getColumn(6);
-        seventhColumn.setPreferredWidth(30);
-        seventhColumn.setMaxWidth(30);
-        seventhColumn.setMinWidth(30);
-        TableColumn ninthColumn = jTable.getColumnModel().getColumn(8);
-        ninthColumn.setPreferredWidth(90);
-        ninthColumn.setMaxWidth(90);
-        ninthColumn.setMinWidth(90);
+        seventhColumn.setPreferredWidth(150);
+        seventhColumn.setMaxWidth(150);
+        seventhColumn.setMinWidth(150);
+
+        TableColumn eighthColumn = jTable.getColumnModel().getColumn(7);
+        eighthColumn.setPreferredWidth(100);
+        eighthColumn.setMaxWidth(100);
+        eighthColumn.setMinWidth(100);
     }
 
     private class FindListener extends KeyAdapter{
