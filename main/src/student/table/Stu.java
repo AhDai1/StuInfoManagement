@@ -45,7 +45,7 @@ public class Stu {
 
     public String getFaculty(){ return faculty; }
 
-    public void setDepartment(String faculty) { this.faculty= faculty; }
+    public void setFaculty(String faculty) { this.faculty= faculty; }
 
     public String getHomeTown() {
         return homeTown;
