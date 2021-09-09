@@ -25,6 +25,8 @@ public class Final {
     public static final String LOGIN_PASSWORD = "密码";
     public static final String LOGIN = "登录";
     public static final String RESET = "重置";
+    public static final String REGISTER = "注册";
+    public static final String REGISTER_NAME = "姓名";
 
     //main
     public static final String MAIN_TITLE = "学生信息管理系统";
