@@ -180,7 +180,7 @@ public class MainView extends JFrame{
     public static void initJTable(JTable jTable, String[][] result) {
         ((DefaultTableModel) jTable.getModel()).setDataVector(result, column);
         jTable.setRowHeight(20);
-
+        jTable.setEnabled(false);//不可编辑
         /*TableColumn firstColumn = jTable.getColumnModel().getColumn(0);
         firstColumn.setPreferredWidth(30);
         firstColumn.setMaxWidth(30);
