@@ -13,7 +13,7 @@ import student.table.Stu;
  */
 public class StuDAO extends BaseDAO{
     private final int fieldNum = 8;
-    private final int showNum = 15;
+    private final int showNum = 10;
     private static StuDAO sd = null;
 
     public static StuDAO getInstance(){
@@ -77,7 +77,7 @@ public class StuDAO extends BaseDAO{
                 return result;
             }
             // insert
-            String sql = "insert into student(name,sno,sex,department,hometown,mark,email,tel) values(?,?,?,?,?,?,?,?)";
+            String sql = "insert into student(name,sno,sex,faculty,hometown,email,tel) values(?,?,?,?,?,?,?)";
             String[] param = { stu.getName(), stu.getSno(), stu.getSex(), stu.getFaculty(), stu.getHomeTown(),
                     stu.getEmail(), stu.getTel() };
             if (db.executeUpdate(sql, param) == 1) {
@@ -130,10 +130,14 @@ public class StuDAO extends BaseDAO{
         }
         List<Stu> stus = new ArrayList<Stu>();
         int i = 0;
-        int beginNum = (pageNum - 1) * showNum;
-        String sql = "select * from student limit ?,?";
-        Integer[] param = { beginNum, showNum };
-        rs = db.executeQuery(sql, param);
+        int beginNum = (pageNum - 1) * showNum;//m,n=beginNum + showNum
+        //String sql = "select top ? * from student  where id not in (select top ? id from student)";
+        //Integer[] param = {showNum + 1 , beginNum - 1 };
+        //rs = db.executeQuery(sql, param);
+        String sql = "select top " + String.valueOf(showNum)  + " * from student  where id not in (select top " + String.valueOf(beginNum)  + " id from student)";
+        //String sql = "select * from student";
+        //String sql = "select top 2 * from student  where id not in (select top 1 id from student)";
+        rs = db.executeQuery(sql);
         try {
             while (rs.next()) {
                 buildList(rs, stus, i);
@@ -157,20 +161,20 @@ public class StuDAO extends BaseDAO{
     // 将list中记录添加到二维数组中
     private void buildResult(String[][] result, List<Stu> stus, int j) {
         Stu stu = stus.get(j);
-        result[j][0] = String.valueOf(stu.getId());
-        result[j][1] = stu.getName();
-        result[j][2] = stu.getSno();
-        result[j][3] = stu.getSex();
-        result[j][4] = stu.getFaculty();
-        result[j][5] = stu.getHomeTown();
-        result[j][6] = stu.getEmail();
-        result[j][7] = stu.getTel();
+        //result[j][0] = String.valueOf(stu.getId());
+        result[j][0] = stu.getName();
+        result[j][1] = stu.getSno();
+        result[j][2] = stu.getSex();
+        result[j][3] = stu.getFaculty();
+        result[j][4] = stu.getHomeTown();
+        result[j][5] = stu.getEmail();
+        result[j][6] = stu.getTel();
     }
 
     // 将rs记录添加到list中
     private void buildList(ResultSet rs, List<Stu> list, int i) throws SQLException {
         Stu stu = new Stu();
-        stu.setId(i + 1);
+        //stu.setId(i + 1);
         stu.setName(rs.getString("name"));
         stu.setFaculty(rs.getString("faculty"));
         stu.setEmail(rs.getString("email"));
