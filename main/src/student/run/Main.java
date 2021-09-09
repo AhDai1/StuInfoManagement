@@ -14,11 +14,11 @@ public class Main {
 
         //初始化数据库
         //admin表
-        db.execute("create table admin(id int primary key," +
+        db.execute("create table admin(id int identity(1,1)," +
                 "name varchar(32)," +
-                "username varchar(32)," +
+                "username varchar(32) primary key," +
                 "password varchar(32))");
-        db.execute("insert into admin(id, name, username, password) values(1, 'admin', '1', '1')");
+        db.execute("insert into admin(name, username, password) values('admin', '1', '1')");
 
         //student
         db.execute("create table student(" +
