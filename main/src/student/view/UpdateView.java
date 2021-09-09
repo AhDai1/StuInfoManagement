@@ -1,15 +1,10 @@
 package student.view;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 import student.Final;
 import student.DAO;
@@ -78,7 +73,11 @@ public class UpdateView extends JFrame{
                         String[][] result = ((StuDAO) BaseDAO.getDAO(DAO.StuDAO))
                                 .list(MainView.currPageNum);
                         MainView.initJTable(MainView.jTable, result);
+                    }else{
+                        ErrorUpdate();
                     }
+                }else{
+                    ErrorMessage();
                 }
             }
         });
@@ -103,9 +102,7 @@ public class UpdateView extends JFrame{
     
     private boolean check() {
         boolean result = false;
-        if ("".equals(name.getText()) || "".equals(sno.getText()) || "".equals(faulty.getText())
-                || "".equals(sex.getText()) || "".equals(tel.getText()) ||
-                "".equals(email.getText()) || "".equals(hometown.getText())) {
+        if ("".equals(name.getText()) || "".equals(sno.getText())) {
             return result;
         } else {
             result = true;
@@ -131,5 +128,42 @@ public class UpdateView extends JFrame{
         email.setText("");
         hometown.setText("");
         tel.setText("");
+    }
+    private void ErrorMessage(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("更新失败，学号或姓名为空");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
+    }
+
+    private void ErrorUpdate(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("更新失败，学号不存在");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
     }
 }
