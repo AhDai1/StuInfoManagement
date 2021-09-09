@@ -73,8 +73,8 @@ public class StuDAO extends BaseDAO{
         }
         try {
             // check
-            if (querySno(stu.getSno()) == 1) {
-                return result;
+            if (querySno(stu.getSno()) == 0) {
+               return result;
             }
             // insert
             String sql = "insert into student(name,sno,sex,faculty,hometown,email,tel) values(?,?,?,?,?,?,?)";
