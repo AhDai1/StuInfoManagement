@@ -18,6 +18,7 @@ import student.Final;
 import student.DAO;
 import student.base.BaseDAO;
 import student.dao.StuDAO;
+
 /**
  * 说明：首页
  */
@@ -25,7 +26,7 @@ public class MainView extends JFrame{
     private final int maxPageNum = 99;
     private JPanel jpNorth, jpSouth, jpCenter;//面板
     private JButton jbFirst, jbLast, jbNext, jbPre, jbAdd, jbDelete, jbUpdate, jbFind;//按钮
-    private JLabel currPageNumJLabel;//标签
+    private JLabel currPageNumJLabel, QueryName;//标签
     private JTextField jTestField;//文本框
     public static JTable jTable;
     private JScrollPane jScrollPane;//滚动条
@@ -43,6 +44,11 @@ public class MainView extends JFrame{
         //north panel
         jpNorth = new JPanel();
         jpNorth.setLayout(new GridLayout(1, 5));
+
+        QueryName = new JLabel(Final.QUERY_NAME);
+        QueryName.setHorizontalAlignment(JLabel.CENTER);
+        jpNorth.add(QueryName);
+
         jTestField = new JTextField(Final.PARAM_FIND_CONDITION);
         jTestField.addKeyListener(new FindListener());
         jpNorth.add(jTestField);
@@ -171,7 +177,7 @@ public class MainView extends JFrame{
         this.add(jpSouth, BorderLayout.SOUTH);
 
 
-        setBounds(400, 200, 750, 340);
+        setBounds(400, 200, 750, 310);
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);
