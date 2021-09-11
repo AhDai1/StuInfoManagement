@@ -4,9 +4,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import student.DAO;
+import student.dao.ScheduleDAO;
+import student.dao.ScoreDAO;
 import student.dbUtil.dbUtil;
 import student.dao.StuDAO;
 import student.dao.AdminDAO;
+import student.table.Score;
 
 /**
  * 说明：DAO基类
@@ -30,6 +33,16 @@ public abstract class BaseDAO {
                     baseDAO = StuDAO.getInstance();
                 }
                 break;
+            case ScheduleDAO:
+                if(baseDAO == null || baseDAO.getClass() != ScheduleDAO.class){
+                    baseDAO = ScheduleDAO.getInstance();
+                }
+                break;
+            /*case ScoreDAO:
+                if(baseDAO == null || baseDAO.getClass() != ScoreDAO.class){
+                    baseDAO = Score.getInstance();
+                }
+                break;*/
             default:
                 break;
         }
