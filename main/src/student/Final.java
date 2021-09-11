@@ -29,7 +29,7 @@ public class Final {
     public static final String REGISTER_NAME = "姓名";
 
     //main
-    public static final String MAIN_TITLE = "学生信息管理系统";
+    public static final String MAIN_TITLE = "学生基本信息";
     public static final String MAIN_DI = "第 ";
     public static final String MAIN_YE = "/99 页";
     public static final String MAIN_RESULT = "查询结果";
@@ -42,6 +42,7 @@ public class Final {
     public static final String PARAM_ADD = "添加";
     public static final String PARAM_DELETE = "删除";
     public static final String PARAM_UPDATE = "更新";
+    public static final String QUERY_NAME = "按姓名查找";
 
 
     //add
@@ -56,6 +57,28 @@ public class Final {
     // update view
     public static final String UPDATE_TITLE = "更新学生信息";
     public static final String UPDATE = "更新";
+
+    //select
+    public static final String SELECT = "选择";
+    public static final String SELECT_MESSAGE = "学生基本信息查询";
+    public static final String SELECT_SCHEDULE = "课程查询";
+    public static final String SELECT_SCORE = "分数查询";
+
+    //schedule
+    public static final String SCHEDULE_TITLE = "课程信息";
+    public static final String SCHEDULE_NO = "课程编号";
+    public static final String SCHEDULE_NAME = "课程名称";
+    public static final String SCHEDULE_HOUR = "课时";
+    public static final String SCHEDULE_BOOK = "课程教材";
+
+    public static final String SCORE = "课程分数";
+
+    public static final String SCHEDULE_ADDTITLE = "添加课程信息";
+    public static final String SCHEDULE_ADD = "添加";
+    public static final String SCHEDULE_DELETETITLE = "删除课程信息";
+    public static final String SCHEDULE_DELETE = "删除";
+    public static final String SCHEDULE_UPDATETITLE = "更新课程信息";
+    public static final String SCHEDULE_UPDATE = "更新";
 
 }
 
