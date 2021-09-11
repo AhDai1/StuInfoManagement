@@ -58,9 +58,11 @@ public class DeleteView extends JFrame{
                         MainView.initJTable(MainView.jTable, result);
                     }else{
                         ErrorDelete();
+                        setEmpty();
                     }
                 }else {
                     ErrorMessage();
+                    setEmpty();
                 }
             }
         });

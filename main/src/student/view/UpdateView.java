@@ -75,9 +75,11 @@ public class UpdateView extends JFrame{
                         MainView.initJTable(MainView.jTable, result);
                     }else{
                         ErrorUpdate();
+                        setEmpty();
                     }
                 }else{
                     ErrorMessage();
+                    setEmpty();
                 }
             }
         });
