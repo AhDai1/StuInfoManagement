@@ -3,5 +3,5 @@
  */
 package student;
 public enum DAO {
-    AdMinDAO, StuDAO;
+    AdMinDAO, StuDAO, ScheduleDAO, ScoreDAO;
 }
