@@ -66,21 +66,26 @@ public class ScoreDAO extends BaseDAO{
     }
 
     // add
-    public boolean add(Score score) {
-        boolean result = false;
+    public int add(Score score) {
+        int result = 0;
         if (score == null) {
             return result;
         }
         try {
             // check
             if (querySchno(score.getSchNo()) == 0 || querySno(score.getStuNo()) == 0) {
+                result = 1;
+                return result;
+            }
+            if(querySnoAndSchno(score.getStuNo(), score.getSchNo()) == 1){
+                result = 2;
                 return result;
             }
             // insert
             String sql = "insert into score(sno, schno, score) values(?,?,?)";
             String[] param = { score.getStuNo(), score.getSchNo(), String.valueOf(score.getStuScore()) };
             if (db.executeUpdate(sql, param) == 1) {
-                result = true;
+                result = 0;
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -133,7 +138,6 @@ public class ScoreDAO extends BaseDAO{
     // 将rs记录添加到list中
     private void buildList(ResultSet rs, List<Score> list, int i) throws SQLException {
         Score score = new Score();
-        //stu.setId(i + 1);
         score.setStuNo(rs.getString("sno"));
         score.setSchNo(rs.getString("schno"));
         score.setStuScore(rs.getInt("score"));
@@ -157,14 +161,26 @@ public class ScoreDAO extends BaseDAO{
 
     public String[][] queryScoreResult(String sno, String schno){
         String[][] result = null;
-        if(schno.length() == 0 || sno.length() == 0){
+        if(schno.length() == 0 && sno.length() == 0){
             return result;
         }
         List<Score> scores = new ArrayList<Score>();
         int i = 0;
-        String sql = "select * from score where schno=? and sno=?";
-        String[] param = { schno, sno };
-        rs = db.executeQuery(sql, param);
+        if(schno.length() != 0 && sno.length() != 0){
+            String sql = "select * from score where schno=? and sno=?";
+            String[] param = { schno, sno };
+            rs = db.executeQuery(sql, param);
+        }
+        else if(schno.length() == 0){
+            String sql = "select * from score where sno=?";
+            String[] param = { sno };
+            rs = db.executeQuery(sql, param);
+        }
+        else if(sno.length() == 0){
+            String sql = "select * from score where schno=?";
+            String[] param = { schno };
+            rs = db.executeQuery(sql, param);
+        }
         try {
             while (rs.next()) {
                 buildList(rs, scores, i);
@@ -192,6 +208,21 @@ public class ScoreDAO extends BaseDAO{
         }
         String sql = "select * from student where sno=?";
         String[] param = { sno };
+        rs = db.executeQuery(sql, param);
+        if (rs.next()) {
+            result = 1;
+        }
+        return result;
+    }
+
+    //query by snoandschno from score
+    private int querySnoAndSchno(String sno, String schno) throws SQLException{
+        int result = 0;
+        if("".equals(sno) || sno == null || "".equals(schno) || schno == null){
+            return result;
+        }
+        String sql = "select * from score where sno=? and schno=?";
+        String[] param = { sno, schno };
         rs = db.executeQuery(sql, param);
         if (rs.next()) {
             result = 1;
