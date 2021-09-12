@@ -66,10 +66,12 @@ public class AddView extends JFrame{
                         MainView.initJTable(MainView.jTable, result);
                     }else{
                         ErrorAdd();
+                        setEmpty();
                     }
                 }
                 else{
                     ErrorMessage();
+                    setEmpty();
                 }
             }
         });
