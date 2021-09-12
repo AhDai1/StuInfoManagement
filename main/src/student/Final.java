@@ -80,5 +80,19 @@ public class Final {
     public static final String SCHEDULE_UPDATETITLE = "更新课程信息";
     public static final String SCHEDULE_UPDATE = "更新";
 
+    //score
+    public static final String SCORE_TITLE = "学生课程分数";
+    public static final String SCORE_SCHNO = "课程编号";
+    public static final String SCORE_STUNO = "学号";
+
+    public static final String SCORE_ADDTITLE = "添加学生选课分数信息";
+    public static final String SCORE_ADD = "添加";
+    public static final String SCORE_DELETETITLE = "删除学生选课分数信息";
+    public static final String SCORE_DELETE = "删除";
+    public static final String SCORE_UPDATETITLE = "更新学生选课分数";
+    public static final String SCORE_UPDATE = "更新";
+
+
+
 }
 
