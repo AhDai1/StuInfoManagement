@@ -73,7 +73,7 @@ public class ScheduleDAO extends BaseDAO{
         }
         try {
             // check
-            if (querySchno(Sch.getSchNo()) == 0) {
+            if (querySchno(Sch.getSchNo()) == 1) {
                 return result;
             }
             // insert
