@@ -38,11 +38,11 @@ public abstract class BaseDAO {
                     baseDAO = ScheduleDAO.getInstance();
                 }
                 break;
-            /*case ScoreDAO:
+            case ScoreDAO:
                 if(baseDAO == null || baseDAO.getClass() != ScoreDAO.class){
-                    baseDAO = Score.getInstance();
+                    baseDAO = ScoreDAO.getInstance();
                 }
-                break;*/
+                break;
             default:
                 break;
         }
