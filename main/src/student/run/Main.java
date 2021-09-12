@@ -2,6 +2,7 @@ package student.run;
 
 import student.dbUtil.dbUtil;
 import student.view.LoginView;
+import student.view.SelectView;
 
 public class Main {
     public static void initDB(){
@@ -30,12 +31,35 @@ public class Main {
                 "hometown varchar(64)," +
                 "email varchar(32)," +
                 "tel varchar(16))");
+
+        //schedule
+        db.execute("create table Schedule(" +
+                "id int identity(1,1)," +
+                "schno varchar(10) primary key," +
+                "schname varchar(20)," +
+                "schhour varchar(20)," +
+                "schbook varchar(20)" +
+                ")");
+
+        //score
+        db.execute("create table Score(" +
+                "id int identity(1,1)," +
+                "sno varchar(16)," +
+                "schno varchar(10)," +
+                "score int," +
+                "primary key(sno, schno)," +
+                "foreign key (sno) references student(sno) on update cascade on delete cascade," +
+                "foreign key (schno) references Schedule(schno) on update cascade on delete cascade" +
+                ")");
+
+
     }
+
     public static void main(String[] args) {
         //System.out.println("asd");
         initDB();
         new LoginView();
-        //dbUtil.getdbUtil().close();
+        dbUtil.getdbUtil().close();
     }
 
 }
