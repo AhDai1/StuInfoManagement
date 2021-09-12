@@ -139,7 +139,7 @@ public class dbUtil {
         return conn;
     }
 
-    private void close(){
+    public void close(){
         try{
             if(rs != null){
                 rs.close();
