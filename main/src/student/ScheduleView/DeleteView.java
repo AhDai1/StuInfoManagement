@@ -51,6 +51,7 @@ public class DeleteView extends JFrame{
                         String[][] result = ((ScheduleDAO) BaseDAO.getDAO(DAO.ScheduleDAO))
                                 .list(MainView.currPageNum);
                         MainView.initJTable(MainView.jTable, result);
+                        SuccessDelete();
                     }else{
                         ErrorDelete();
                         setEmpty();
@@ -122,6 +123,25 @@ public class DeleteView extends JFrame{
         dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         dialog.setLayout(new FlowLayout());
         JLabel jl = new JLabel("删除失败，课程编号不存在");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
+    }
+
+    private void SuccessDelete(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("删除成功，请点击确定");
         JButton jb = new JButton("确定");
         jb.addActionListener(new ActionListener() {
             @Override

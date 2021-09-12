@@ -59,6 +59,7 @@ public class UpdateView extends JFrame{
                         String[][] result = ((ScoreDAO) BaseDAO.getDAO(DAO.ScoreDAO))
                                 .list(MainView.currPageNum);
                         MainView.initJTable(MainView.jTable, result);
+                        SuccessUpdate();
                     }else{
                         ErrorUpdate();
                         setEmpty();
@@ -132,6 +133,25 @@ public class UpdateView extends JFrame{
         dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
         dialog.setLayout(new FlowLayout());
         JLabel jl = new JLabel("更新失败，该学生课程信息不存在");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
+    }
+
+    private void SuccessUpdate(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("更新成功，请点击确定");
         JButton jb = new JButton("确定");
         jb.addActionListener(new ActionListener() {
             @Override

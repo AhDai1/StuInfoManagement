@@ -80,6 +80,7 @@ public class AddView extends JFrame{
                         }
                         String[][] result = ((StuDAO) BaseDAO.getDAO(DAO.StuDAO)).list(MainView.currPageNum);
                         MainView.initJTable(MainView.jTable, result);
+                        SuccessAdd();
                     }else{
                         ErrorAdd();
                     }
@@ -177,4 +178,25 @@ public class AddView extends JFrame{
         dialog.setLocation(450,250);
         dialog.setVisible(true);
     }
+
+    private void SuccessAdd(){
+        JDialog dialog = new JDialog(this, true);
+        dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        dialog.setLayout(new FlowLayout());
+        JLabel jl = new JLabel("添加成功，请点击确定");
+        JButton jb = new JButton("确定");
+        jb.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dialog.dispose();
+            }
+        });
+        dialog.add(jl);
+        dialog.add(jb);
+        dialog.setSize(200,100);
+        dialog.setLocation(450,250);
+        dialog.setVisible(true);
+    }
+
+
 }
