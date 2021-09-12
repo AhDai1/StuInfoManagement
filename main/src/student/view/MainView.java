@@ -177,7 +177,7 @@ public class MainView extends JFrame{
         this.add(jpSouth, BorderLayout.SOUTH);
 
 
-        setBounds(400, 200, 750, 310);
+        setBounds(400, 200, 750, 315);
         setResizable(false);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setVisible(true);

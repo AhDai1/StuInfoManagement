@@ -44,6 +44,12 @@ public class SelectView extends JFrame {
         });
 
         jbStuScore = new JButton(Final.SELECT_SCORE);
+        jbStuScore.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new student.ScoreView.MainView();
+            }
+        });
 
         jpCenter.add(jbStuMessage);
         jpCenter.add(jbSchedule);
@@ -53,7 +59,7 @@ public class SelectView extends JFrame {
 
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.setBounds(450, 250, 375, 150);
+        this.setBounds(450, 250, 300, 150);
         this.setResizable(false);
         this.setVisible(true);
     }

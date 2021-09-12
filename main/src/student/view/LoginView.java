@@ -22,7 +22,7 @@ public class LoginView extends JFrame{
     private JPanel jpCenter, jpSouth;
     private JTextField username;
     private JPasswordField password;
-    private JButton login, reset;
+    private JButton login, reset, register;
 
     public LoginView() { init(); }
 
@@ -53,6 +53,16 @@ public class LoginView extends JFrame{
             }
         });
         jpSouth.add(login);
+
+        register = new JButton(Final.REGISTER);
+        register.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RegisterView();
+            }
+        });
+        jpSouth.add(register);
+
         reset = new JButton(Final.RESET);
         reset.addActionListener(new ActionListener() {
             @Override
@@ -85,13 +95,16 @@ public class LoginView extends JFrame{
         //new MainView();
         if(adminDao.queryLogin(username.getText(), String.valueOf(password.getPassword()))){
             dispose();//关闭窗体
-            new MainView();
+            new SelectView();
+            //new MainView();
         }else{
             Error();
             username.setText("");
             password.setText("");
         }
     }
+
+
     private void Error(){
         JDialog dialog = new JDialog(this, true);
         dialog.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
