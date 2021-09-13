@@ -43,7 +43,7 @@ public class MainView extends JFrame{
         jpNorth.setLayout(new GridLayout(1, 5));
 
         QuerySchno = new JLabel();
-        QuerySchno.setText(Final.SCHEDULE_NO);
+        QuerySchno.setText(Final.SCHEDULE_NAME);
         jpNorth.add(QuerySchno);
 
         jTestField = new JTextField(Final.PARAM_FIND_CONDITION);
@@ -226,7 +226,7 @@ public class MainView extends JFrame{
             currPageNumJLabel.setText(Final.MAIN_RESULT);
             return;
         }
-        String[][] result = ((ScheduleDAO) BaseDAO.getDAO(DAO.ScheduleDAO)).querySchnoResult(param);
+        String[][] result = ((ScheduleDAO) BaseDAO.getDAO(DAO.ScheduleDAO)).querySchnameResult(param);
         jTestField.setText("");
         initJTable(MainView.jTable, result);
         currPageNumJLabel.setText(Final.MAIN_RESULT);

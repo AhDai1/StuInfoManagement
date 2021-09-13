@@ -143,15 +143,15 @@ public class ScheduleDAO extends BaseDAO{
         list.add(sch);
     }
 
-    public String[][] querySchnoResult(String schno){
+    public String[][] querySchnameResult(String schname){
         String[][] result = null;
-        if(schno.length() == 0){
+        if(schname.length() == 0){
             return result;
         }
         List<Schedule> schs = new ArrayList<Schedule>();
         int i = 0;
-        String sql = "select * from schedule where schno like ?";
-        String[] param = { "%" + schno + "%" };
+        String sql = "select * from schedule where schname like ?";
+        String[] param = { "%" + schname + "%" };
         rs = db.executeQuery(sql, param);
         try {
             while (rs.next()) {
