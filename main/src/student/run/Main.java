@@ -33,7 +33,7 @@ public class Main {
                 "tel varchar(16))");
 
         //schedule
-        db.execute("create table Schedule(" +
+        db.execute("create table schedule(" +
                 "id int identity(1,1)," +
                 "schno varchar(10) primary key," +
                 "schname varchar(20)," +
@@ -42,7 +42,7 @@ public class Main {
                 ")");
 
         //score
-        db.execute("create table Score(" +
+        db.execute("create table score(" +
                 "id int identity(1,1)," +
                 "sno varchar(16)," +
                 "schno varchar(10)," +
