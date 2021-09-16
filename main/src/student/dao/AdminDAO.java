@@ -10,6 +10,12 @@ import student.base.BaseDAO;
 public class AdminDAO extends BaseDAO{
     private static AdminDAO ad = null;
 
+    private String password = null ;
+
+    public String getPassword() {
+        return password;
+    }
+
     public static AdminDAO getInstance(){
         if(ad == null){
             ad = new AdminDAO();
@@ -65,6 +71,27 @@ public class AdminDAO extends BaseDAO{
         }
 
 
+        return result;
+    }
+
+    public boolean queryFind(String name, String username) {
+        boolean result = false;
+        if (name.length() == 0 || username.length() == 0) {
+            return result;
+        }
+        String sql = "select password from admin where name=? and username=?";
+        String[] param3 = {name, username};
+        rs = db.executeQuery(sql, param3);
+        try {
+            if (rs.next()) {
+                result = true;
+                password = rs.getString("password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            destroy();
+        }
         return result;
     }
 }

@@ -2,6 +2,7 @@
  *说明：定义一些常量
  */
 package student;
+
 public class Final {
     //jdbc
     public static final String JDBC_URL = "jdbc:sqlserver://127.0.0.1:1433;databaseName=students";
@@ -27,6 +28,7 @@ public class Final {
     public static final String RESET = "重置";
     public static final String REGISTER = "注册";
     public static final String REGISTER_NAME = "姓名";
+    public static final String FORGET = "忘记密码";
 
     //main
     public static final String MAIN_TITLE = "学生基本信息";

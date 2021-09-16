@@ -22,7 +22,7 @@ public class LoginView extends JFrame{
     private JPanel jpCenter, jpSouth;
     private JTextField username;
     private JPasswordField password;
-    private JButton login, reset, register;
+    private JButton login, reset, register, forget;
 
     public LoginView() { init(); }
 
@@ -72,6 +72,16 @@ public class LoginView extends JFrame{
             }
         });
         jpSouth.add(reset);
+
+        //忘记密码
+        forget = new JButton(Final.FORGET);
+        forget.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ForgetView();
+            }
+        });
+        jpSouth.add(forget);
 
         this.add(jpCenter, BorderLayout.CENTER);
         this.add(jpSouth, BorderLayout.SOUTH);
